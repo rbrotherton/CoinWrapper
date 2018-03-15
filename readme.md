@@ -27,9 +27,6 @@
 
     // Get latest Ripple quote with debug mode enabled, add GBP currency conversion, and return data in JSON format
     $data = $cw->setDebug(true)->setCurrency("GBP")->getTickerData("XRP", true);
-
-    // Get all tickers
-    $data = $cw->getTickerData("LTC");
     
     // Refresh ticker repository and fetch a list of all possible tickers
     $cw->updateTickerRepo()->getTickers();
