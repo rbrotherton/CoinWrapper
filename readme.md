@@ -29,7 +29,7 @@
     $data = $cw->setDebug(true)->setCurrency("GBP")->getTickerData("XRP", true);
 
     // Get all tickers
-    $data = $cw->setDebug(true)->getTickerData("LTC");
+    $data = $cw->getTickerData("LTC");
     
     // Refresh ticker repository and fetch a list of all possible tickers
     $cw->updateTickerRepo()->getTickers();

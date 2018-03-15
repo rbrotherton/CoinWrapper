@@ -3,8 +3,7 @@
 namespace CoinWrapper;
 
 class CoinWrapper {
-    // TODO: implement global stats API, Multiple/top/limit
-    // TODO: Docs: global stats, multiple/top/limit
+    // TODO: Multiple/top/limit & document
     // TODO: Make composer enabled/PSR4 autoload compat
 
 	protected $api_uri 	   = "https://api.coinmarketcap.com";
