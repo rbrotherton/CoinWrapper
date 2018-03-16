@@ -3,8 +3,6 @@
 namespace CoinWrapper;
 
 class CoinWrapper {
-    // TODO: Multiple/top/limit & document
-    // TODO: Make composer enabled/PSR4 autoload compat
 
 	protected $api_uri 	   = "https://api.coinmarketcap.com";
 	protected $api_version = "v1";
@@ -245,16 +243,15 @@ class CoinWrapper {
      * @param bool $return_json
      * @return mixed|string
      */
-    public function getAllTickersData($limit = 0, $return_json = false)
+    public function getAllTickersData($limit = 0, $start = 0, $return_json = false)
     {
 
-        $limit = intval($limit);
+        // Params
+        $params = "?limit=". intval($limit) . "&start=". intval($start);
 
         // Currency Conversion
         if($this->currency != $this->default_currency){
-            $params = "?limit=". $limit ."&convert=". $this->currency;
-        } else {
-            $params = "?limit=". $limit;
+            $params .= "&convert=". $this->currency;
         }
 
         // Get data

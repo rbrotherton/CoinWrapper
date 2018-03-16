@@ -19,10 +19,20 @@
     require "CoinWrapper.php";
     $cw   = new \CoinWrapper\CoinWrapper();
 
-    // Get latest Ehterium quote with currency conversion to EUR
+    // Return JSON instead of PHP objects
+    $data = $cw->getTickerData("Etherium", true);
+
+    // Get latest data for top 10 tickers
+    $data = $cw->getAllTickersData(10);
+
+    // Pagination
+    $page1 = $cw->getAllTickersData(10, 0);
+    $page2 = $cw->getAllTickersData(10, 10);
+
+    // Currency Conversion
     $data = $cw->setCurrency("EUR")->getTickerData("Etherium");
 
-    // Get latest Litecoin quote with debug mode enabled
+    // Debug Mode
     $data = $cw->setDebug(true)->getTickerData("LTC");
 
     // Get latest Ripple quote with debug mode enabled, add GBP currency conversion, and return data in JSON format
